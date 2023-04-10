@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC0644DA29E43D06006D56E1 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0644D929E43D06006D56E1 /* NetworkManager.swift */; };
 		BC78B3C629DEB0B000485D37 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC78B3C529DEB0B000485D37 /* TabBarController.swift */; };
 		BC78B3C829DEB1F500485D37 /* FoodMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC78B3C729DEB1F500485D37 /* FoodMenuViewController.swift */; };
 		BCA935D629DAB073006F4A32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA935D529DAB073006F4A32 /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC0644D929E43D06006D56E1 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		BC78B3C529DEB0B000485D37 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		BC78B3C729DEB1F500485D37 /* FoodMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodMenuViewController.swift; sourceTree = "<group>"; };
 		BCA935D229DAB073006F4A32 /* FoodMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +71,7 @@
 				BCA935DE29DAB073006F4A32 /* FoodMarket.xcdatamodeld */,
 				BC78B3C529DEB0B000485D37 /* TabBarController.swift */,
 				BC78B3C729DEB1F500485D37 /* FoodMenuViewController.swift */,
+				BC0644D929E43D06006D56E1 /* NetworkManager.swift */,
 			);
 			path = FoodMarket;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 				BCA935DA29DAB073006F4A32 /* ViewController.swift in Sources */,
 				BC78B3C829DEB1F500485D37 /* FoodMenuViewController.swift in Sources */,
 				BCA935D629DAB073006F4A32 /* AppDelegate.swift in Sources */,
+				BC0644DA29E43D06006D56E1 /* NetworkManager.swift in Sources */,
 				BCA935D829DAB073006F4A32 /* SceneDelegate.swift in Sources */,
 				BC78B3C629DEB0B000485D37 /* TabBarController.swift in Sources */,
 				BCA935E029DAB073006F4A32 /* FoodMarket.xcdatamodeld in Sources */,
