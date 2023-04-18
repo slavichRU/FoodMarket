@@ -10,6 +10,8 @@ import UIKit
 
 class FoodMenuViewController: UIViewController {
     
+    var items = [Hero]()
+    
     lazy var headerView: UIView = {
         let view = UIView()
         view.backgroundColor = .cyan
@@ -24,16 +26,23 @@ class FoodMenuViewController: UIViewController {
         return button
     }()
     
+    lazy var imageView: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+    
     lazy var bannersCollectionView: UICollectionView = {
         let view = createCollectionView(layout: Self.createBannersLayout())
-        view.register(UICollectionViewCell.self, forCellWithReuseIdentifier: Constant.bannersCellIdentifier)
+        view.register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.identifier)
+        //view.isPagingEnabled = true
         
         return view
     }()
     
     lazy var categoriesCollectionView: UICollectionView = {
         let view = createCollectionView(layout: Self.createCategoriesLayout())
-        view.register(UICollectionViewCell.self, forCellWithReuseIdentifier: Constant.categoriesCellIdentifier)
+        view.register(CollectionViewCell.self, forCellWithReuseIdentifier: Constant.categoriesCellIdentifier)
         return view
     }()
     
@@ -67,8 +76,28 @@ class FoodMenuViewController: UIViewController {
     //MARK: - View live cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .darkGray
+        
+       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NetworkManager.shared.getAvatar { result in
+            
+            switch result {
+            case .success(let getAllHeroesResult):
+                print("success 1111")
+                self.items = getAllHeroesResult.factions
+                self.bannersCollectionView.reloadData()
+                //print(rikAndMorty.image)
+                //test = rikAndMorty.image
+            case .failure:
+                print("error 0000")
+                
+            }
+        }
     }
     
     //MARK: - Private Func
@@ -83,6 +112,7 @@ class FoodMenuViewController: UIViewController {
         view.addSubview(contentStackView)
         view.addSubview(headerView)
         headerView.addSubview(cityButton)
+        
         
     }
     
@@ -130,12 +160,22 @@ class FoodMenuViewController: UIViewController {
 
 //MARK: - Extension
 
+extension UIImageView {
+    
+    func downloadImage(from url: URL) {
+        ImageCache.getImage(url: url) { image in
+            self.image = image
+        }
+        
+    }
+}
+
 extension FoodMenuViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case bannersCollectionView:
-            return 8
+            return items.count
         case categoriesCollectionView:
             return 8
         case productsCollectionView:
@@ -149,10 +189,37 @@ extension FoodMenuViewController: UICollectionViewDataSource {
         let color = [UIColor.red, .blue, .green]
         
         switch collectionView {
+            
         case bannersCollectionView:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constant.bannersCellIdentifier, for: indexPath)
-            cell.backgroundColor = color[indexPath.row % color.count]
-            return cell
+            //var test = ""
+            
+           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as? CollectionViewCell
+            
+//            NetworkManager.shared.getAvatar { result in
+//                switch result {
+//                case .success(let rikAndMorty):
+//                    print("success 1111")
+//                    //print(rikAndMorty.image)
+//                    test = rikAndMorty.image
+//                case .failure:
+//                    print("error 0000")
+//
+//                }
+//            }
+//
+//            print(test)
+            //let url = URL(string: "https://rickandmortyapi.com/api/character/2")
+            let item = items[indexPath.row]
+            cell!.myImageView.downloadImage(from: item.image.uri)
+                cell!.myImageView.layer.cornerRadius = 25
+            cell!.myLabelName.text = item.name
+            print("vvv")
+                return cell!
+            
+                
+            
+            
+            
         case categoriesCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constant.categoriesCellIdentifier, for: indexPath)
             cell.backgroundColor = color[indexPath.row % color.count]
@@ -165,8 +232,6 @@ extension FoodMenuViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
     }
-    
-    
 }
 
 extension FoodMenuViewController: UICollectionViewDelegateFlowLayout {
@@ -190,12 +255,14 @@ extension FoodMenuViewController: UICollectionViewDelegateFlowLayout {
     
 }
 
+//MARK: - Create Layout
 
 extension FoodMenuViewController {
     static func createBannersLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 16, height: Constant.bannersHeight)
+        layout.itemSize = CGSize(width: Constant.bannersWidth, height: Constant.bannersHeight)
+        layout.minimumLineSpacing = Constant.itemsSpacing
         return layout
     }
     
@@ -216,6 +283,12 @@ extension FoodMenuViewController {
 
 private extension FoodMenuViewController {
     enum Constant {
+        static let itemsSpacing: CGFloat = 1
+        static let itemsPerPage: CGFloat = 1
+        static var bannersWidth: CGFloat {
+            UIScreen.main.bounds.width / itemsPerPage -
+            (itemsSpacing * (itemsPerPage - 1)) / itemsPerPage
+        }
         static let headerHeight: CGFloat = 64
         static let bannersHeight: CGFloat = 128
         static let categoriesHeight: CGFloat = 64

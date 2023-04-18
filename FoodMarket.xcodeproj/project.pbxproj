@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BC0644DA29E43D06006D56E1 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0644D929E43D06006D56E1 /* NetworkManager.swift */; };
+		BC0644DC29E44F54006D56E1 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0644DB29E44F54006D56E1 /* Hero.swift */; };
 		BC78B3C629DEB0B000485D37 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC78B3C529DEB0B000485D37 /* TabBarController.swift */; };
 		BC78B3C829DEB1F500485D37 /* FoodMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC78B3C729DEB1F500485D37 /* FoodMenuViewController.swift */; };
 		BCA935D629DAB073006F4A32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA935D529DAB073006F4A32 /* AppDelegate.swift */; };
@@ -16,10 +17,13 @@
 		BCA935E029DAB073006F4A32 /* FoodMarket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BCA935DE29DAB073006F4A32 /* FoodMarket.xcdatamodeld */; };
 		BCA935E229DAB079006F4A32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCA935E129DAB079006F4A32 /* Assets.xcassets */; };
 		BCA935E529DAB079006F4A32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCA935E329DAB079006F4A32 /* LaunchScreen.storyboard */; };
+		BCD8FC0F29EA834200E3D017 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8FC0E29EA834200E3D017 /* CollectionViewCell.swift */; };
+		BCD8FC1129EEE98A00E3D017 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8FC1029EEE98A00E3D017 /* ImageCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BC0644D929E43D06006D56E1 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		BC0644DB29E44F54006D56E1 /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		BC78B3C529DEB0B000485D37 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		BC78B3C729DEB1F500485D37 /* FoodMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodMenuViewController.swift; sourceTree = "<group>"; };
 		BCA935D229DAB073006F4A32 /* FoodMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,6 +34,8 @@
 		BCA935E129DAB079006F4A32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCA935E429DAB079006F4A32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCA935E629DAB079006F4A32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCD8FC0E29EA834200E3D017 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		BCD8FC1029EEE98A00E3D017 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,9 @@
 				BC78B3C529DEB0B000485D37 /* TabBarController.swift */,
 				BC78B3C729DEB1F500485D37 /* FoodMenuViewController.swift */,
 				BC0644D929E43D06006D56E1 /* NetworkManager.swift */,
+				BC0644DB29E44F54006D56E1 /* Hero.swift */,
+				BCD8FC0E29EA834200E3D017 /* CollectionViewCell.swift */,
+				BCD8FC1029EEE98A00E3D017 /* ImageCache.swift */,
 			);
 			path = FoodMarket;
 			sourceTree = "<group>";
@@ -146,12 +155,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCD8FC1129EEE98A00E3D017 /* ImageCache.swift in Sources */,
 				BCA935DA29DAB073006F4A32 /* ViewController.swift in Sources */,
 				BC78B3C829DEB1F500485D37 /* FoodMenuViewController.swift in Sources */,
+				BCD8FC0F29EA834200E3D017 /* CollectionViewCell.swift in Sources */,
 				BCA935D629DAB073006F4A32 /* AppDelegate.swift in Sources */,
 				BC0644DA29E43D06006D56E1 /* NetworkManager.swift in Sources */,
 				BCA935D829DAB073006F4A32 /* SceneDelegate.swift in Sources */,
 				BC78B3C629DEB0B000485D37 /* TabBarController.swift in Sources */,
+				BC0644DC29E44F54006D56E1 /* Hero.swift in Sources */,
 				BCA935E029DAB073006F4A32 /* FoodMarket.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
